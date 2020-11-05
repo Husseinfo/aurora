@@ -26,7 +26,8 @@ class TimesListAdapter :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.name.text = times[position].name
+        holder.name.text =
+            times[position].name?.get(0)?.toUpperCase().toString() + times[position].name?.substring(1)
         holder.clock.text = times[position].clock
     }
 
