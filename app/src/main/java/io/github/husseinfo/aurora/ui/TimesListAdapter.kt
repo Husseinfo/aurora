@@ -26,9 +26,12 @@ class TimesListAdapter :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.name.text =
-            times[position].name?.get(0)?.toUpperCase().toString() + times[position].name?.substring(1)
+        val name = times[position].name
+        holder.name.text = name?.get(0)?.toUpperCase().toString() + name?.substring(1)
         holder.clock.text = times[position].clock
+//        if (!BoldTimes.values().map { x -> x.name }.contains(name?.toUpperCase())) {
+//            holder.itemView.setBackgroundColor(Color.RED)
+//        }
     }
 
     override fun getItemCount(): Int {

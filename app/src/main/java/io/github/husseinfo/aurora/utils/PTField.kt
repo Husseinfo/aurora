@@ -1,7 +1,6 @@
 package io.github.husseinfo.aurora.utils
 
 enum class Times {
-    EMSAK,
     FAJER,
     SHOROOK,
     DOHOR,
@@ -9,6 +8,12 @@ enum class Times {
     MOGHREB,
     ISHAA,
     MIDNIGHT
+}
+
+enum class BoldTimes {
+    FAJER,
+    DOHOR,
+    MOGHREB,
 }
 
 const val FAJER = "fajer"

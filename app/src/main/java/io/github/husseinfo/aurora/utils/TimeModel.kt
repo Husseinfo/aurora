@@ -13,3 +13,7 @@ public fun jsonToTimes(json: JSONObject?): ArrayList<TimeModel> {
 
     return times
 }
+
+public fun getDayString(json: JSONObject?): String? {
+    return """${json?.getString(HDAY)} ${json?.getString(HMONTH)} ${json?.getString(HYEAR)}"""
+}

@@ -2,25 +2,28 @@ package io.github.husseinfo.aurora.ui
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.github.husseinfo.aurora.R
 import io.github.husseinfo.aurora.api.Task
 import io.github.husseinfo.aurora.utils.PT_KEY
+import io.github.husseinfo.aurora.utils.getDayString
 import io.github.husseinfo.aurora.utils.getSPString
 import io.github.husseinfo.aurora.utils.jsonToTimes
 import org.json.JSONObject
 import org.json.JSONTokener
 
 private lateinit var timesList: RecyclerView
+private lateinit var dayTextView: TextView
 private val timesAdapter: TimesListAdapter = TimesListAdapter()
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        dayTextView = findViewById(R.id.day_textview)
         timesList = findViewById(R.id.times_list)
         timesList.layoutManager = LinearLayoutManager(this)
         timesList.adapter = timesAdapter
@@ -36,6 +39,7 @@ class MainActivity : AppCompatActivity() {
 
 
     public fun updateTimes(times: JSONObject?) {
+        dayTextView.text = getDayString(times)
         timesAdapter.setTimes(jsonToTimes(times))
     }
 }
